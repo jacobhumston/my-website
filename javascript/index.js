@@ -13,11 +13,11 @@ function discordButton() {
     const elementText = document.getElementById('discord-text');
     let coolDown = false;
     let originalText = elementText.innerText;
-    element.addEventListener('click', function () {
+    element.addEventListener('click', async function () {
         if (coolDown) return;
         coolDown = true;
         try {
-            navigator.clipboard.writeText(originalText);
+            await navigator.clipboard.writeText(originalText);
             elementText.innerText = 'Copied!';
         } catch {
             elementText.innerText = 'Failed to copy!';
