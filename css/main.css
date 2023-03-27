@@ -61,10 +61,27 @@ body
     color: rgb(72, 142, 255);
 }
 
+@keyframes menu-bar-link-animation
+{
+    from
+    {
+        color: rgb(0, 0, 0);
+        border-bottom-color: rgb(0, 0, 0);
+    }
+
+    to
+    {
+        color: rgb(72, 142, 255);
+        border-bottom-color: rgb(72, 142, 255);
+    }
+}
+
 .menu-bar-link:hover
 {
     border-bottom: solid rgb(72, 142, 255) 2px;
     color: rgb(72, 142, 255);
+    animation-name: menu-bar-link-animation;
+    animation-duration: 0.25s;
 }
 
 #menu-bar-break-1,
