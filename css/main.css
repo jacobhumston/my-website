@@ -29,6 +29,12 @@ body
     padding: 0;
 }
 
+a
+{
+    color: rgb(42, 113, 227);
+    text-decoration: none;
+}
+
 #menu-bar
 {
     padding: 5px;
