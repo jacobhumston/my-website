@@ -14,16 +14,25 @@
     padding: 10px;
 }
 
+#games-divider
+{
+    display: flex;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
 .game-divider
 {
-    width: 80%;
+    width: auto;
     margin: auto;
     margin-top: 25px;
+    text-overflow: ellipsis;
 }
 
 .game-divider div
 {
-    width: calc(50% - 4px);
     float: left;
     overflow: hidden;
 }
@@ -32,12 +41,14 @@
 {
     text-align: right;
     padding-right: 4px;
+    width: 150px;
 }
 
 .game-divider #second-div
 {
     text-align: left;
     padding-left: 4px;
+    width: calc(100% - 158px);
 }
 
 .game-divider img
@@ -54,4 +65,19 @@
 .game-divider #name
 {
     font-weight: bolder;
+}
+
+@media screen and (max-width: 600px)
+{
+    .game-divider #first-div
+    {
+        width: 100%;
+        text-align: center;
+    }
+
+    .game-divider #second-div
+    {
+        width: 100%;
+        text-align: center;
+    }
 }

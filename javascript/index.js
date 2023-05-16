@@ -19,6 +19,7 @@ function discordButton() {
         try {
             await navigator.clipboard.writeText(originalText);
             elementText.innerText = 'Copied!';
+            window.open('discord://');
         } catch {
             elementText.innerText = 'Failed to copy!';
         }

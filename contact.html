@@ -34,8 +34,34 @@
                 <br />
                 If you are interested in commissioning me, please visit the
                 <a href="commisions.html">commissions page</a> first.
+                <br />
+                <br />
+                <br />
+                <img
+                    src="https://media.tenor.com/aFrLlewBz4IAAAAi/cat-cute.gif"
+                    alt="Cat Gif"
+                    width="174px"
+                    height="190px"
+                    id="cat-gif"
+                />
             </p>
         </div>
         <script src="javascript/main.js"></script>
+        <script>
+            const element = document.getElementById('cat-gif');
+            element.onclick = function () {
+                const pass = prompt('What is the secret password? (Hint: cat)');
+                if (pass !== null) {
+                    if (pass === 'cat') {
+                        const result = window.open('assets/videos/cat-party.mp4', '_blank');
+                        if (!result) {
+                            alert('https://lovelyjacob.com/assets/videos/cat-party.mp4');
+                        }
+                    } else {
+                        alert('Incorrect!');
+                    }
+                }
+            };
+        </script>
     </body>
 </html>
