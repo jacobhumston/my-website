@@ -31,29 +31,31 @@
             <h1>Contact</h1>
             <p>
                 If you would like to contact me, please do so on Discord for the quickest response.
-                <br />
+                <br /><br />
                 If you are interested in commissioning me, please visit the
                 <a href="commisions.html">commissions page</a> first.
                 <br />
                 <br />
                 <br />
                 <img
-                    src="https://media.tenor.com/aFrLlewBz4IAAAAi/cat-cute.gif"
+                    src="assets/images/cute-cat.gif"
                     alt="Cat Gif"
                     width="174px"
                     height="190px"
                     id="cat-gif"
+                    style="position: absolute; bottom: 5px"
                 />
             </p>
         </div>
         <script src="javascript/main.js"></script>
         <script>
+            // For clarification, this is just a silly easter egg. Nothing secretive is going on here! >:D
             const element = document.getElementById('cat-gif');
             element.onclick = function () {
                 const pass = prompt('What is the secret password? (Hint: cat)');
                 if (pass !== null) {
                     if (pass === 'cat') {
-                        const result = window.open('assets/videos/cat-party.mp4', '_blank');
+                        const result = window.open('assets/videos/cat-party.mp4', '_blank', 'popup');
                         if (!result) {
                             alert('https://lovelyjacob.com/assets/videos/cat-party.mp4');
                         }
