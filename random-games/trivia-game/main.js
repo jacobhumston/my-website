@@ -61,6 +61,15 @@ async function main() {
         questionDataP.innerHTML = 'Category: ???<br>Difficulty: ???';
 
         gameDivider.innerHTML = '<h2>Loading...</h2>';
+        const loadingImage = document.createElement('img');
+        loadingImage.src = 'assets/loading.gif';
+        loadingImage.alt = 'loading gif';
+        loadingImage.width = 150;
+        gameDivider.insertAdjacentElement('beforeend', loadingImage);
+
+        await new Promise(function (resolve) {
+            setTimeout(resolve, 1000);
+        });
 
         const questionData = await getQuestion();
         questionP.innerHTML = questionData.question;
@@ -70,6 +79,8 @@ async function main() {
 
         gameDivider.insertAdjacentElement('beforeend', questionP);
         gameDivider.insertAdjacentElement('beforeend', questionDataP);
+
+        let correctAnswer = '';
 
         function buttonFunction(correct) {
             if (correct === true) {
@@ -90,13 +101,14 @@ async function main() {
                 setTimeout(function () {
                     gameDivider.innerHTML = '';
                     main();
-                }, 2000);
+                }, 3000);
             } else {
                 gameDivider.innerHTML = '<h2>Wrong!</h2>';
+                gameDivider.insertAdjacentHTML('beforeend', `<p>Correct answers was... ${correctAnswer}</p>`);
                 setTimeout(function () {
                     gameDivider.innerHTML = '';
                     main();
-                }, 2000);
+                }, 3000);
             }
         }
 
@@ -109,6 +121,9 @@ async function main() {
             };
             gameDivider.insertAdjacentElement('beforeend', button);
             gameDivider.insertAdjacentHTML('beforeend', '<br>');
+            if (answer.correct === true) {
+                correctAnswer = answer.answer;
+            }
         });
     } catch (err) {
         alert(err);
