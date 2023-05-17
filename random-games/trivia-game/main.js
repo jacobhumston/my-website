@@ -97,7 +97,7 @@ async function main() {
                 }
                 pointsP.innerText = points + ' Points';
                 gameDivider.innerHTML = '';
-                gameDivider.innerHTML = `<h2>Correct! (+${pointsEarned} Point${pointsEarned === 1 ? '' : 's'})</h2>`;
+                gameDivider.innerHTML = `<h2>Correct!</h2><p>+${pointsEarned} Point${pointsEarned === 1 ? '' : 's'}</p>`;
                 setTimeout(function () {
                     gameDivider.innerHTML = '';
                     main();

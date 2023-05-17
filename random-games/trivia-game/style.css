@@ -31,6 +31,18 @@ p
     font-size: large;
 }
 
+a
+{
+    color: rgb(42, 113, 227);
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: rgb(22, 98, 220);
+    font-weight: bolder;
+}
+
 #wrapper
 {
     text-align: center;
