@@ -55,10 +55,35 @@
                 const pass = prompt('What is the secret password? (Hint: cat)');
                 if (pass !== null) {
                     if (pass === 'cat') {
-                        const result = window.open('assets/videos/cat-party.mp4', '_blank', 'popup');
-                        if (!result) {
-                            alert('https://lovelyjacob.com/assets/videos/cat-party.mp4');
-                        }
+                        // const result = window.open('assets/videos/cat-party.mp4', '_blank', 'popup');
+                        // if (!result) {
+                        //    alert('https://lovelyjacob.com/assets/videos/cat-party.mp4');
+                        //}
+
+                        const wrapper = document.getElementById('wrapper');
+                        wrapper.innerHTML = '';
+
+                        const video = document.createElement('video');
+                        video.controls = false;
+                        video.autoplay = true;
+                        video.muted = true;
+                        video.onended = function () {
+                            location.reload();
+                        };
+                        video.height = 500;
+
+                        const videoSource = document.createElement('source');
+                        videoSource.src = 'assets/videos/cat-party.mp4';
+                        videoSource.type = 'video/mp4';
+
+                        const link = document.createElement('a');
+                        link.href = 'javascript: location.reload()';
+                        link.text = 'Go Back';
+
+                        wrapper.insertAdjacentElement('beforeend', video);
+                        video.insertAdjacentElement('beforeend', videoSource);
+                        wrapper.insertAdjacentHTML('beforeend', '<br><br>');
+                        wrapper.insertAdjacentElement('beforeend', link);
                     } else {
                         alert('Incorrect!');
                     }

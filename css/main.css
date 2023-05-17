@@ -35,6 +35,12 @@ a
     text-decoration: none;
 }
 
+a:hover
+{
+    color: rgb(22, 98, 220);
+    font-weight: bolder;
+}
+
 #menu-bar
 {
     padding: 5px;
@@ -88,6 +94,7 @@ a
     color: rgb(72, 142, 255);
     animation-name: menu-bar-link-animation;
     animation-duration: 0.25s;
+    font-weight: normal;
 }
 
 #menu-bar-break-1,

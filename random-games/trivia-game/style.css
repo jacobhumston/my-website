@@ -1,0 +1,55 @@
+/* 
+
+    Programmed by LovelyJacob (Jacob Humston).
+    This code is open source, however I kindly ask for credit if used.
+    Repository: https://github.com/jacobhumston/my-website
+
+    Have a good one! :)
+
+*/
+
+@font-face
+{
+    font-family: SecularOne-Regular;
+    src: url('SecularOne-Regular.ttf');
+}
+
+html
+{
+    font-family: SecularOne-Regular Arial, Helvetica, sans-serif;
+}
+
+hr
+{
+    border: none;
+    height: 2px;
+    background-color: black;
+}
+
+p
+{
+    font-size: large;
+}
+
+#wrapper
+{
+    text-align: center;
+    padding: 25px;
+}
+
+.answer-button
+{
+    width: 85%;
+    border: solid #000000 3px;
+    border-radius: 30px;
+    background-color: #ffffff;
+    font-size: larger;
+    padding: 5px;
+    margin-bottom: 5px;
+    max-width: 600px;
+}
+
+.answer-button:hover
+{
+    background-color: #dddddd;
+}
