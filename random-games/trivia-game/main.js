@@ -104,7 +104,7 @@ async function main() {
                 }, 3000);
             } else {
                 gameDivider.innerHTML = '<h2>Wrong!</h2>';
-                gameDivider.insertAdjacentHTML('beforeend', `<p>Correct answers was... ${correctAnswer}</p>`);
+                gameDivider.insertAdjacentHTML('beforeend', `<p>Correct answer was... ${correctAnswer}</p>`);
                 setTimeout(function () {
                     gameDivider.innerHTML = '';
                     main();
