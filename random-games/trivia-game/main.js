@@ -9,7 +9,21 @@
 */
 
 async function getQuestion() {
-    const response = await fetch('https://opentdb.com/api.php?amount=1');
+    let url = 'https://opentdb.com/api.php?amount=1';
+
+    const categoriesSelection = document.getElementById('categories');
+    const selectedCategory = categoriesSelection.selectedOptions[0].value;
+    if (selectedCategory !== 'Any') {
+        url = `${url}&category=${selectedCategory.split(' - ')[1]}`;
+    }
+
+    const difficultySelection = document.getElementById('difficulty');
+    const selectedDifficulty = difficultySelection.selectedOptions[0].value;
+    if (selectedDifficulty !== 'Any') {
+        url = `${url}&difficulty=${selectedDifficulty.toLowerCase()}`;
+    }
+
+    const response = await fetch(url);
     const json = await response.json();
 
     const question = json.results[0].question;
@@ -47,12 +61,56 @@ async function getQuestion() {
 }
 
 let points = 0;
+let loadedCategories = false;
+let connectedButtons = false;
 
 async function main() {
     const gameDivider = document.getElementById('game');
     const pointsP = document.getElementById('points');
 
+    if (loadedCategories === false) {
+        const categoriesSelection = document.getElementById('categories');
+        await fetch('https://opentdb.com/api_category.php')
+            .then(async function (response) {
+                const json = await response.json();
+                json.trivia_categories.forEach(function (value) {
+                    const option = document.createElement('option');
+                    option.innerText = `${value.name} - ${value.id}`;
+                    categoriesSelection.insertAdjacentElement('beforeend', option);
+                });
+            })
+            .catch(function () {
+                return;
+            });
+        loadedCategories = true;
+    }
+
+    if (connectedButtons === false) {
+        const button = document.getElementById('settings-button');
+        const settings = document.getElementById('settings');
+        button.onclick = function () {
+            settings.hidden = !settings.hidden;
+            if (settings.hidden) {
+                button.innerText = 'Show Settings';
+            } else {
+                button.innerText = 'Hide Settings';
+            }
+        };
+        button.hidden = false;
+        const newQuestionButton = document.getElementById('new-question');
+        newQuestionButton.onclick = function () {
+            gameDivider.innerHTML = '';
+            main();
+        };
+        connectedButtons = true;
+    }
+
     try {
+        const settingsButton = document.getElementById('settings-button');
+        if (settingsButton.innerText !== 'Hide Settings') {
+            settingsButton.hidden = true;
+        }
+
         const questionP = document.createElement('p');
         questionP.innerText = '???';
         questionP.style = 'font-weight: bold;';
@@ -73,12 +131,10 @@ async function main() {
 
         const questionData = await getQuestion();
         questionP.innerHTML = questionData.question;
-        questionDataP.innerHTML = 'Category: ' + questionData.category + '<br>Difficulty: ' + questionData.difficulty;
 
         gameDivider.innerHTML = '';
 
         gameDivider.insertAdjacentElement('beforeend', questionP);
-        gameDivider.insertAdjacentElement('beforeend', questionDataP);
 
         let correctAnswer = '';
 
@@ -97,7 +153,9 @@ async function main() {
                 }
                 pointsP.innerText = points + ' Points';
                 gameDivider.innerHTML = '';
-                gameDivider.innerHTML = `<h2>Correct!</h2><p>+${pointsEarned} Point${pointsEarned === 1 ? '' : 's'}</p>`;
+                gameDivider.innerHTML = `<h2>Correct!</h2><p>+${pointsEarned} Point${
+                    pointsEarned === 1 ? '' : 's'
+                }</p>`;
                 setTimeout(function () {
                     gameDivider.innerHTML = '';
                     main();
@@ -117,6 +175,9 @@ async function main() {
             button.classList.add('answer-button');
             button.innerHTML = answer.answer;
             button.onclick = function () {
+                if (settingsButton.innerText !== 'Hide Settings') {
+                    settingsButton.hidden = true;
+                }
                 buttonFunction(answer.correct);
             };
             gameDivider.insertAdjacentElement('beforeend', button);
@@ -125,6 +186,16 @@ async function main() {
                 correctAnswer = answer.answer;
             }
         });
+
+        questionDataP.innerHTML =
+            '<b>Category:</b> ' +
+            questionData.category +
+            '<br><b>Difficulty:</b> ' +
+            questionData.difficulty.charAt(0).toUpperCase() +
+            questionData.difficulty.slice(1);
+        gameDivider.insertAdjacentElement('beforeend', questionDataP);
+
+        settingsButton.hidden = false;
     } catch (err) {
         alert(err);
         location.reload();

@@ -25,7 +25,29 @@
             <hr />
             <h1>Trivia Game</h1>
             <p id="points">0 Points</p>
-            <div id="game"></div>
+            <div id="game">
+                <h2>Loading...</h2>
+                <img src="assets/loading.gif" alt="loading gif" width="150px" />
+            </div>
+            <br />
+            <button id="settings-button" hidden>Show Settings</button>
+            <p id="settings" hidden>
+                Select a Category:
+                <br />
+                <select id="categories">
+                    <option selected>Any</option>
+                </select>
+                <br /><br />
+                Select a Difficulty:
+                <select id="difficulty">
+                    <option selected>Any</option>
+                    <option>Easy</option>
+                    <option>Medium</option>
+                    <option>Hard</option>
+                </select>
+                <br /><br />
+                <button id="new-question">New Question</button>
+            </p>
         </div>
         <script src="main.js"></script>
     </body>

@@ -49,14 +49,39 @@ a:hover
     padding: 25px;
 }
 
-.answer-button
+button
 {
-    width: 85%;
     border: solid #000000 3px;
     border-radius: 30px;
     background-color: #ffffff;
     font-size: larger;
-    padding: 5px;
+    padding: 8px;
+    font-family: SecularOne-Regular Arial, Helvetica, sans-serif;
+}
+
+#settings-button,
+#new-question
+{
+    font-size: large;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#settings
+{
+    margin-top: 10px;
+    width: 60%;
+    padding: 10px;
+    border: solid #000000 3px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    max-width: 400px;
+}
+
+.answer-button
+{
+    width: 85%;
     margin-bottom: 5px;
     max-width: 600px;
 }
@@ -64,4 +89,15 @@ a:hover
 .answer-button:hover
 {
     background-color: #dddddd;
+}
+
+select,
+option
+{
+    font-size: medium;
+    max-width: 90%;
+    border: solid #000000 3px;
+    padding: 5px;
+    border-radius: 10px;
+    font-family: SecularOne-Regular Arial, Helvetica, sans-serif;
 }
