@@ -1,0 +1,108 @@
+/* 
+
+    Programmed by LovelyJacob (Jacob Humston).
+    This code is open source, however I kindly ask for credit if used.
+    Repository: https://github.com/jacobhumston/my-website
+
+    Have a good one! :)
+
+*/
+
+@font-face
+{
+    font-family: Gotham;
+    src: url('assets/fonts/GothamBook.ttf');
+}
+
+@font-face
+{
+    font-family: GothamBold;
+    src: url('assets/fonts/GothamBold.ttf');
+}
+
+@font-face
+{
+    font-family: GothamBlack;
+    src: url('assets/fonts/Gotham-Black.otf');
+}
+
+html,
+body
+{
+    font-family: Gotham;
+    background-color: rgb(49, 49, 49);
+    color: rgb(255, 255, 255);
+    padding: 0px;
+    margin: 0px;
+}
+
+b
+{
+    font-family: GothamBold;
+    font-weight: normal;
+}
+
+h1,
+h2
+{
+    font-family: GothamBlack;
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+#content-divider
+{
+    background-color: rgb(38, 38, 38);
+    max-width: 600px;
+    padding: 15px;
+    padding-top: 30px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+#view-all-games,
+#home
+{
+    color: rgb(255, 255, 255);
+    font-family: GothamBold;
+    text-decoration: none;
+    position: absolute;
+    bottom: 10px;
+    display: block;
+}
+
+#view-all-games:hover,
+#home:hover
+{
+    color: rgb(214, 214, 214);
+}
+
+#home
+{
+    text-align: right;
+}
+
+#number-input
+{
+    margin-top: 40px;
+    border: none;
+    border-radius: 10px;
+    width: 210px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: GothamBold;
+    padding: 10px;
+    text-align: center;
+    font-size: medium;
+    color: rgb(255, 255, 255);
+    background-color: rgb(49, 49, 49);
+}
+
+#number-input:focus
+{
+    outline: none;
+}
