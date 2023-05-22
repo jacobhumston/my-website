@@ -13,3 +13,25 @@
     text-align: center;
     padding: 10px;
 }
+
+#assets
+{
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+#assets div
+{
+    padding: 5px;
+    max-width: 500px;
+    display: inline-block;
+}
+
+#assets div img,
+#assets div video
+{
+    width: 100%;
+}

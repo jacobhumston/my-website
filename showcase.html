@@ -29,8 +29,110 @@
         </div>
         <div id="wrapper">
             <h1>Showcase</h1>
-            <p>Coming soon!</p>
+            <p>
+                Here are some of the things I've created.
+                <br />
+                If you have any questions, please don't hesitate to <a href="contact.html">contact me</a>!
+            </p>
+            <div id="assets"></div>
         </div>
         <script src="javascript/main.js"></script>
+        <script>
+            const assetsDiv = document.getElementById('assets');
+            const assets = [
+                {
+                    file: 'T9VSxO4GlE.png',
+                    desc: 'Scripted Donation LeaderBoard',
+                    isVideo: false,
+                },
+                {
+                    file: 'GQHqzN42GB.png',
+                    desc: 'Scripted Obby LeaderBoard',
+                    isVideo: false,
+                },
+                {
+                    file: '2023-05-22-06-32-45.mp4',
+                    desc: 'Ball Merge + Coin/Gem Collection (+Effects)',
+                    isVideo: true,
+                },
+                {
+                    file: '2023-05-22-06-33-30.mp4',
+                    desc: 'Pet System',
+                    isVideo: true,
+                },
+                {
+                    file: 'LSqG5MkJ6l.png',
+                    desc: 'Scripted Generator/Upgrades UI',
+                    isVideo: false,
+                },
+                {
+                    file: 'TJrfJoksog.png',
+                    desc: 'Voting System (Backend)',
+                    isVideo: false,
+                },
+                {
+                    file: 'SQH7d2nDpR.png',
+                    desc: 'General Game LeaderBoards',
+                    isVideo: false,
+                },
+                {
+                    file: '3WPSxV9ST1.png',
+                    desc: 'Shop UI/Backend',
+                    isVideo: false,
+                },
+                {
+                    file: '1OAvX9e83y.png',
+                    desc: 'Client-Sided Music System',
+                    isVideo: false,
+                },
+                {
+                    file: '2023-05-22-07-03-22.mp4',
+                    desc: 'Teleport System',
+                    isVideo: true,
+                },
+                {
+                    file: 'j7Ncx77HL2.png',
+                    desc: 'Chat Tags',
+                    isVideo: false,
+                },
+            ];
+
+            assets.forEach(function (object) {
+                const divider = document.createElement('div');
+                if (object.isVideo == false) {
+                    const img = document.createElement('img');
+                    img.src = 'assets/showcase/' + object.file;
+                    img.alt = object.desc;
+                    divider.insertAdjacentElement('beforeend', img);
+                    divider.insertAdjacentHTML(
+                        'beforeend',
+                        '<br><b>' +
+                            object.desc +
+                            '</b><br><a target="_blank" href="' +
+                            'assets/showcase/' +
+                            object.file +
+                            '">Open Image</a>'
+                    );
+                } else {
+                    const video = document.createElement('video');
+                    video.controls = true;
+                    const videoSource = document.createElement('source');
+                    videoSource.src = 'assets/showcase/' + object.file;
+                    videoSource.type = 'video/mp4';
+                    video.insertAdjacentElement('beforeend', videoSource);
+                    divider.insertAdjacentElement('beforeend', video);
+                    divider.insertAdjacentHTML(
+                        'beforeend',
+                        '<br><b>' +
+                            object.desc +
+                            '</b><br><a href="' +
+                            'assets/showcase/' +
+                            object.file +
+                            '" download>Download Video</a>'
+                    );
+                }
+                assetsDiv.insertAdjacentElement('beforeend', divider);
+            });
+        </script>
     </body>
 </html>
