@@ -1,0 +1,29 @@
+<!--
+
+    Programmed by LovelyJacob (Jacob Humston).
+    This code is open source, however I kindly ask for credit if used.
+    Repository: https://github.com/jacobhumston/my-website
+
+    Have a good one! :)
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Loading...</title>
+        <style>
+            body {
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            const params = new URLSearchParams(location.search);
+            const url = `https://www.roblox.com/games/start?launchData=${params.get('code')}&placeId=13456309189`;
+            location.href = url;
+        </script>
+    </body>
+</html>
