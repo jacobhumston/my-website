@@ -12,6 +12,9 @@
 {
     text-align: center;
     padding: 10px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #games-divider
@@ -55,6 +58,7 @@
 {
     width: 150px;
     height: 150px;
+    border-radius: 10px;
 }
 
 .game-divider p
