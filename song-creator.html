@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Song Creator</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+        <style>
+            body {
+                text-align: center;
+                padding-top: 20px;
+            }
+
+            body,
+            button,
+            input {
+                font-family: 'Roboto', sans-serif;
+            }
+
+            p {
+                font-size: large;
+            }
+
+            input[type='text'],
+            input[type='number'] {
+                font-size: large;
+                padding: 5px;
+                max-width: 90%;
+                border-radius: 10px;
+                border: solid;
+                border-width: 2px;
+            }
+
+            input[type='text']:valid,
+            input[type='number']:valid {
+                border-color: rgb(119, 212, 119);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="starter">
+            <h1>Song Creator</h1>
+            <p>Fill in the fields bellow to get started.</p>
+            <br />
+            <input type="text" id="i-songname" required placeholder="Song Name" />
+            <br /><br />
+            <input type="number" id="i-songid" required placeholder="Song ID" />
+        </div>
+        <div id="main" hidden>
+            <h1>Edit</h1>
+            Use the buttons bellow to modify properties and add/remove lyrics.
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
+        <script>
+            const starterDiv = document.getElementById('starter');
+            const mainDiv = document.getElementById('main');
+            const saved = Cookies.get('song-creator-save');
+            const data = {};
+            let alrSaved = false;
+            if (typeof saved === 'string') {
+                try {
+                    data = JSON.parse(saved);
+                    alrSaved = true;
+                } catch (e) {
+                    console.warn(e);
+                }
+            }
+
+            if (alrSaved == false) {
+                data.soundid = 0;
+                data.songname = '';
+                data.audiostartpos = 0,
+                data.audioendpos = null,
+                data.lyrics = []
+                 
+            } else {
+                starterDiv.hidden = true;
+                mainDiv.hidden = false;
+            }
+        </script>
+    </body>
+</html>
